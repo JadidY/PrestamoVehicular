@@ -30,7 +30,7 @@ export class NegocioListarComponent implements OnInit,AfterViewInit {
   lista: Negocio[] = []
   dataSource: MatTableDataSource<Negocio> = new MatTableDataSource();
   idMayor: number = 0
-  displayedColumns: string[] = ['id', 'nameNegocio', 'direccionNegocio','telefono','emailNegocio','tipoNegocio','IDUsuario','accion01','accion02'];
+  displayedColumns: string[] = ['id', 'Titulo', 'Descripcion','Estado','Fecha','Genero','Editorial','accion01','accion02'];
 
   constructor(private uS: NegocioService,private dialog:MatDialog) {}
   ngOnInit(): void {

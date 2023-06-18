@@ -3,20 +3,19 @@
     <p><button mat-button (click)="close('toggle button')">Cerrar</button></p>
     <button mat-button routerLink="/usuarios">Usuarios</button>
     <br>
-    <button mat-button routerLink="/clientes">Clientes</button>
+    <button mat-button routerLink="/clientes">Alumnos</button>
     <br>
-    <button mat-button routerLink="/negocios">Negocio</button>
+    <button mat-button routerLink="/negocios">Libros</button>
     <br>
-    <button mat-button routerLink="/compras">Compras</button>
+    <button mat-button routerLink="/compras">Prestamos</button>
     <br>
-    <button mat-button routerLink="/destinos">Destinos</button>
   </mat-sidenav>
 
   <mat-sidenav-content>
     <p><button mat-button color="warn" (click)="sidenav.open()"><span class="material-icons">menu</span></button></p>
     <div class="container">
       <div style="text-align: center">
-        <h1>Lista de Negocios</h1>
+        <h1>Lista de Libros</h1>
       </div>
 
       <div style="text-align: right;">
@@ -31,39 +30,39 @@
       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
         <ng-container matColumnDef="id">
-          <th mat-header-cell *matHeaderCellDef>ID.</th>
+          <th mat-header-cell *matHeaderCellDef>id</th>
           <td mat-cell *matCellDef="let element">{{ element.id }}</td>
         </ng-container>
 
-        <ng-container matColumnDef="nameNegocio">
-          <th mat-header-cell *matHeaderCellDef>NameNegocio</th>
+        <ng-container matColumnDef="Titulo">
+          <th mat-header-cell *matHeaderCellDef>Titulo</th>
           <td mat-cell *matCellDef="let element">{{ element.nameNegocio }}</td>
         </ng-container>
 
-        <ng-container matColumnDef="direccionNegocio">
-          <th mat-header-cell *matHeaderCellDef>DireccionNegocio</th>
+        <ng-container matColumnDef="Descripcion">
+          <th mat-header-cell *matHeaderCellDef>Descripcion</th>
           <td mat-cell *matCellDef="let element">
             {{ element.direccionNegocio }}
           </td>
         </ng-container>
 
-        <ng-container matColumnDef="telefono">
-          <th mat-header-cell *matHeaderCellDef>Telefono</th>
+        <ng-container matColumnDef="Estado">
+          <th mat-header-cell *matHeaderCellDef>Estado</th>
           <td mat-cell *matCellDef="let element">{{ element.telefono }}</td>
         </ng-container>
 
-        <ng-container matColumnDef="emailNegocio">
-          <th mat-header-cell *matHeaderCellDef>EmailNegocio</th>
-          <td mat-cell *matCellDef="let element">{{ element.emailNegocio }}</td>
+        <ng-container matColumnDef="Fecha">
+          <th mat-header-cell *matHeaderCellDef> Fecha </th>
+          <td mat-cell *matCellDef="let element"> {{element.fecha|date: 'dd/MM/yyyy'}} </td>
         </ng-container>
 
-        <ng-container matColumnDef="tipoNegocio">
-          <th mat-header-cell *matHeaderCellDef>TipoNegocio</th>
+        <ng-container matColumnDef="Genero">
+          <th mat-header-cell *matHeaderCellDef>Genero</th>
           <td mat-cell *matCellDef="let element">{{ element.tipoNegocio }}</td>
         </ng-container>
 
-        <ng-container matColumnDef="IDUsuario">
-          <th mat-header-cell *matHeaderCellDef>IDUsuario</th>
+        <ng-container matColumnDef="Editorial">
+          <th mat-header-cell *matHeaderCellDef>Editorial</th>
           <td mat-cell *matCellDef="let element">{{ element.IDUsuario }}</td>
         </ng-container>
 

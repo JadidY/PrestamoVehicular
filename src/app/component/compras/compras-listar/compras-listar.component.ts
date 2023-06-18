@@ -32,7 +32,7 @@ export class ComprasListarComponent implements OnInit, AfterViewInit {
   lista: compras[] = []
   dataSource: MatTableDataSource<compras> = new MatTableDataSource();
   idMayor: number = 0
-  displayedColumns: string[] = ['codigo', 'cantidad', 'precio_total', 'descripcion', 'fecha', 'cliente_codigo', 'negocio_codigo', 'accion01','accion02']
+  displayedColumns: string[] = ['codigo', 'FechaP', 'FechaD', 'Estado', 'ID_Alumno', 'ID_Libro', 'ID_Bibliotecario', 'accion01','accion02']
   constructor(private cS: ComprasService, private dialog: MatDialog) {
 
   }

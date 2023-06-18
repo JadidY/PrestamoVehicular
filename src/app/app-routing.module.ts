@@ -20,7 +20,7 @@ import { MenuComponent } from './component/menu/menu.component';
 
 const routes: Routes = [
   
-  { path: '', component: LandingPageComponent },
+  { path: '', component: ClienteComponent },
   { path: 'clientes', component: ClienteComponent, children: [
     { path: 'registrarcl', component: ClienteCreaeditaComponent },
     { path: 'edicion/:id', component: ClienteCreaeditaComponent }

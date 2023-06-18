@@ -87,7 +87,7 @@ export class ClienteCreaeditaComponent implements OnInit {
       }
       this.router.navigate(['clientes']);
     } else {
-      this.mensaje = "Ingrese los datos del cliente"
+      this.mensaje = "Ingrese los datos del Alumno"
     }
   }
 

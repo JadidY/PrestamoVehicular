@@ -22,6 +22,20 @@ npm install @angular/cli@15.2.4
 npm audit fix
 ```
 
+# Iniciar Proyecto y JSON Server
+
+> Iniciar Angular Proyect
+
+```powershell
+ng serve -o
+```
+
+> Iniciar JSON Server
+
+```powershell
+npm run server
+```
+
 # Proyecto Angular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.

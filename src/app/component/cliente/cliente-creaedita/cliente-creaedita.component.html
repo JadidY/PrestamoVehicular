@@ -3,20 +3,18 @@
     <p><button mat-button (click)="close('toggle button')">Cerrar</button></p>
     <button mat-button routerLink="/usuarios">Usuarios</button>
     <br>
-    <button mat-button routerLink="/clientes">Clientes</button>
+    <button mat-button routerLink="/clientes">Alumnos</button>
     <br>
-    <button mat-button routerLink="/negocios">Negocio</button>
+    <button mat-button routerLink="/negocios">Libros</button>
     <br>
-    <button mat-button routerLink="/compras">Compras</button>
-    <br>
-    <button mat-button routerLink="/destinos">Destinos</button>
+    <button mat-button routerLink="/compras">Prestamos</button>
   </mat-sidenav>
 
   <mat-sidenav-content>
     <p><button mat-button color="warn" (click)="sidenav.open()"><span class="material-icons">menu</span></button></p>
     <div class="container">
       <div style="text-align: center;">
-        <h1>Registro de clientes</h1>
+        <h1>Registro de Alumnos</h1>
       </div>
 
       <form [formGroup]="form" (submit)="aceptar()">
@@ -39,42 +37,39 @@
         </mat-form-field>
         <br>
 
-        <mat-form-field appearance="fill">
-          <mat-label>Fecha de nacimiento</mat-label>
-          <input matInput [matDatepicker]="picker" formControlName="anioNacimiento" [max]="maxFecha">
-          <mat-hint>MM/DD/YYYY</mat-hint>
-          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
+        <mat-form-field class="example-full-width">
+          <mat-label>Facultad</mat-label>
+          <input matInput placeholder="Facultad" formControlName="apellidoCliente">
         </mat-form-field>
         <br>
 
         <mat-form-field class="example-full-width">
-          <mat-label>Email</mat-label>
-          <input matInput placeholder="algo@example.com" formControlName="emailCliente">
+          <mat-label>Carrera</mat-label>
+          <input matInput placeholder="Carrera" formControlName="emailCliente">
+        </mat-form-field>
+        <br>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>dni</mat-label>
+          <input matInput placeholder="dni" formControlName="telefono">
         </mat-form-field>
         <br>
 
         <mat-form-field class="example-full-width">
           <mat-label>Telefono</mat-label>
-          <input matInput placeholder="Telefono" formControlName="telefono">
+          <input matInput placeholder="Telefono" formControlName="direccion">
         </mat-form-field>
         <br>
 
         <mat-form-field class="example-full-width">
           <mat-label>Direccion</mat-label>
-          <input matInput placeholder="Direccion" formControlName="direccion">
+          <input matInput placeholder="Direccion" formControlName="IDUsuario">
         </mat-form-field>
         <br>
 
         <mat-form-field class="example-full-width">
-          <mat-label>IDUsuario</mat-label>
-          <input matInput placeholder="IDUsuario" formControlName="IDUsuario">
-        </mat-form-field>
-        <br>
-
-        <mat-form-field class="example-full-width">
-          <mat-label>CuentaBancaria</mat-label>
-          <input matInput placeholder="CuentaBancaria" formControlName="cuentaBancaria">
+          <mat-label>ID_Login</mat-label>
+          <input matInput placeholder="ID_Login" formControlName="cuentaBancaria">
         </mat-form-field>
         <br>
 

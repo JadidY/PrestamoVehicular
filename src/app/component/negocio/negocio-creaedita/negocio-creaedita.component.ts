@@ -28,6 +28,7 @@ export class NegocioCreaeditaComponent implements OnInit {
   form: FormGroup = new FormGroup({});
   negocio: Negocio = new Negocio();
   mensaje: string = '';
+  fecha_max: Date = moment().add(1, 'days').toDate();
 
   ngOnInit(): void {
     this.route.params.subscribe((data: Params) => {
