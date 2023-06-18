@@ -10,13 +10,15 @@
 
 # Instalación de los Packages necesarios
 
-> Para instalar los archivos de npm_modules luego de clonar el repositorio, usa los siguientes comandos:
+> Instalar los packages necesarios
 
 ```powershell
-# Instalar los packages necesarios
 npm install @angular/cli@15.2.4
+```
 
-# Solucionar errores de compatibilidad de versiones
+> Solucionar errores de compatibilidad de versiones
+
+```powershell
 npm audit fix
 ```
 
