@@ -4,23 +4,21 @@ import { environment } from 'src/environments/environment';
 import { Cliente } from '../model/clientes';
 import { Subject } from 'rxjs';
 
-const base_url = environment.base
+const base_url = environment.base;
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-
 export class ClienteService {
-  private url = `${base_url}/clientes`
+  private url = `${base_url}/clientes`;
   private listaCambio = new Subject<Cliente[]>();
-  private confirmarEliminacion = new Subject<Boolean>()
-  constructor(private http: HttpClient) { }
+  private confirmarEliminacion = new Subject<Boolean>();
+  constructor(private http: HttpClient) {}
   list() {
     return this.http.get<Cliente[]>(this.url);
   }
 
   insert(cliente: Cliente) {
-
-    return this.http.post(this.url, cliente)
+    return this.http.post(this.url, cliente);
   }
 
   setList(ListaNueva: Cliente[]) {
@@ -36,19 +34,17 @@ export class ClienteService {
   }
 
   update(a: Cliente) {
-    return this.http.put(this.url + "/" + a.id, a);
-
+    return this.http.put(this.url + '/' + a.id, a);
   }
 
   delete(id: number) {
-    return this.http.delete(`${this.url}/${id}`)
+    return this.http.delete(`${this.url}/${id}`);
   }
 
-  getConfirmDelete(){
+  getConfirmDelete() {
     return this.confirmarEliminacion.asObservable();
   }
-  setConfirmDelete(estado:Boolean){
+  setConfirmDelete(estado: Boolean) {
     this.confirmarEliminacion.next(estado);
   }
-
 }

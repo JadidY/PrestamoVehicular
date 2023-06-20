@@ -4,7 +4,7 @@ import { Negocio } from 'src/app/model/negocio';
 import * as moment from 'moment';
 import { NegocioService } from 'src/app/service/negocio.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import {MatSidenav} from '@angular/material/sidenav';
+import { MatSidenav } from '@angular/material/sidenav';
 
 @Component({
   selector: 'app-negocio-creaedita',
@@ -12,7 +12,6 @@ import {MatSidenav} from '@angular/material/sidenav';
   styleUrls: ['./negocio-creaedita.component.css'],
 })
 export class NegocioCreaeditaComponent implements OnInit {
-
   @ViewChild('sidenav') sidenav!: MatSidenav;
 
   reason = '';
@@ -69,7 +68,7 @@ export class NegocioCreaeditaComponent implements OnInit {
       this.form.value['IDUsuario'].length > 0
     ) {
       if (this.edicion) {
-        this.aS.update(this.negocio).subscribe(()=>{
+        this.aS.update(this.negocio).subscribe(() => {
           this.aS.list().subscribe((data) => {
             this.aS.setList(data);
           });

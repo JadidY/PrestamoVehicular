@@ -4,16 +4,16 @@ import { HttpClient } from '@angular/common/http';
 import { compras } from '../model/compras';
 import { Subject } from 'rxjs';
 
-const base_url = environment.base
+const base_url = environment.base;
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ComprasService {
-  private url = `${base_url}/Compras`
-  private confirmarEliminacion = new Subject<Boolean>()
+  private url = `${base_url}/Compras`;
+  private confirmarEliminacion = new Subject<Boolean>();
   private listaCambio = new Subject<compras[]>();
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
   list() {
     return this.http.get<compras[]>(this.url);
   }
@@ -31,22 +31,22 @@ export class ComprasService {
   }
 
   listId(id: number) {
-    return this.http.get<compras>(`${this.url}/${id}`)
+    return this.http.get<compras>(`${this.url}/${id}`);
   }
 
   update(c: compras) {
-    return this.http.put(this.url + "/" + c.id, c)
+    return this.http.put(this.url + '/' + c.id, c);
   }
 
-  delete(id:number){
-    return this.http.delete(`${this.url}/${id}`)
+  delete(id: number) {
+    return this.http.delete(`${this.url}/${id}`);
   }
 
-  getConfirmDelete(){
+  getConfirmDelete() {
     return this.confirmarEliminacion.asObservable();
   }
 
-  setConfirmDelete(estado:boolean){
+  setConfirmDelete(estado: boolean) {
     this.confirmarEliminacion.next(estado);
   }
 }

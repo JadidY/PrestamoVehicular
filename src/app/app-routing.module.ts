@@ -19,32 +19,51 @@ import { LandingPageComponent } from './component/landing-page/landing-page.comp
 import { MenuComponent } from './component/menu/menu.component';
 
 const routes: Routes = [
-  
   { path: '', component: ClienteComponent },
-  { path: 'clientes', component: ClienteComponent, children: [
-    { path: 'registrarcl', component: ClienteCreaeditaComponent },
-    { path: 'edicion/:id', component: ClienteCreaeditaComponent }
-  ]},
-  { path: 'compras', component: ComprasComponent, children: [
-    { path: 'registrarcm', component: ComprasCreaeditaComponent },
-    { path: 'edicion/:id', component: ComprasCreaeditaComponent }
-  ]},
-  { path: 'destinos', component: DestinoComponent, children: [
-    { path: 'registrardt', component: DestinoCreaeditaComponent },
-    { path: 'edicion/:id', component: DestinoCreaeditaComponent }
-  ]},
-  { path: 'negocios', component: NegocioComponent, children: [
-    { path: 'registrarng', component: NegocioCreaeditaComponent },
-    { path: 'edicion/:id', component: NegocioCreaeditaComponent }
-  ]},
-  { path: 'usuarios', component: UsuarioComponent, children: [
-    { path: 'registrarus', component: UsuarioCreaeditaComponent },
-    { path: 'edicion/:id', component: UsuarioCreaeditaComponent }
-  ]}
+  {
+    path: 'clientes',
+    component: ClienteComponent,
+    children: [
+      { path: 'registrarcl', component: ClienteCreaeditaComponent },
+      { path: 'edicion/:id', component: ClienteCreaeditaComponent },
+    ],
+  },
+  {
+    path: 'compras',
+    component: ComprasComponent,
+    children: [
+      { path: 'registrarcm', component: ComprasCreaeditaComponent },
+      { path: 'edicion/:id', component: ComprasCreaeditaComponent },
+    ],
+  },
+  {
+    path: 'destinos',
+    component: DestinoComponent,
+    children: [
+      { path: 'registrardt', component: DestinoCreaeditaComponent },
+      { path: 'edicion/:id', component: DestinoCreaeditaComponent },
+    ],
+  },
+  {
+    path: 'negocios',
+    component: NegocioComponent,
+    children: [
+      { path: 'registrarng', component: NegocioCreaeditaComponent },
+      { path: 'edicion/:id', component: NegocioCreaeditaComponent },
+    ],
+  },
+  {
+    path: 'usuarios',
+    component: UsuarioComponent,
+    children: [
+      { path: 'registrarus', component: UsuarioCreaeditaComponent },
+      { path: 'edicion/:id', component: UsuarioCreaeditaComponent },
+    ],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

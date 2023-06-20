@@ -1,22 +1,28 @@
-import { Component, OnInit, ViewChild,AfterViewInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog'
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatSidenav } from '@angular/material/sidenav';
-import { MatTableDataSource } from '@angular/material/table'
+import { MatTableDataSource } from '@angular/material/table';
 import { Usuario } from 'src/app/model/usuario';
 import { UsuarioService } from 'src/app/service/usuario.service';
 import { UsuarioDialogoComponent } from './usuario-dialogo/usuario-dialogo.component';
-import {MatPaginator} from '@angular/material/paginator';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-usuario-listar',
   templateUrl: './usuario-listar.component.html',
-  styleUrls: ['./usuario-listar.component.css']
+  styleUrls: ['./usuario-listar.component.css'],
 })
-export class UsuarioListarComponent implements OnInit,AfterViewInit {
+export class UsuarioListarComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  dataSource:MatTableDataSource<Usuario> = new MatTableDataSource();
-  displayedColumns:string[] = ["id", "email", "telefono", "modificar", "borrar"];
+  dataSource: MatTableDataSource<Usuario> = new MatTableDataSource();
+  displayedColumns: string[] = [
+    'id',
+    'email',
+    'telefono',
+    'modificar',
+    'borrar',
+  ];
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
@@ -29,37 +35,36 @@ export class UsuarioListarComponent implements OnInit,AfterViewInit {
     this.sidenav.close();
   }
   shouldRun = true;
-  idMayor: number = 0
+  idMayor: number = 0;
 
-  constructor(private uS:UsuarioService, private dialog:MatDialog) {}
-  ngOnInit():void {
-    this.uS.list().subscribe(data => {
+  constructor(private uS: UsuarioService, private dialog: MatDialog) {}
+  ngOnInit(): void {
+    this.uS.list().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
-    })
-    this.uS.getList().subscribe(data => {
+    });
+    this.uS.getList().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
-    
-      this.uS.getConfirmDelete().subscribe(data => {
+
+      this.uS.getConfirmDelete().subscribe((data) => {
         data == true ? this.eliminar(this.idMayor) : false;
-      })
-    
-    })
+      });
+    });
   }
-  
-  confirm(id:number) {
+
+  confirm(id: number) {
     this.idMayor = id;
     this.dialog.open(UsuarioDialogoComponent);
   }
-  
-  eliminar(id:number) {
+
+  eliminar(id: number) {
     this.uS.delete(id).subscribe(() => {
-      this.uS.list().subscribe(data => {
+      this.uS.list().subscribe((data) => {
         this.uS.setList(data);
-      })
-    })
+      });
+    });
   }
-  
-  filtrar(z:any) {
+
+  filtrar(z: any) {
     this.dataSource.filter = z.target.value.trim();
   }
 }

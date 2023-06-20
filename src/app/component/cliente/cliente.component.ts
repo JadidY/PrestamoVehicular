@@ -4,10 +4,9 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-cliente',
   templateUrl: './cliente.component.html',
-  styleUrls: ['./cliente.component.css']
+  styleUrls: ['./cliente.component.css'],
 })
 export class ClienteComponent implements OnInit {
-  constructor(public route: ActivatedRoute) { }
-  ngOnInit(): void {
-  }
+  constructor(public route: ActivatedRoute) {}
+  ngOnInit(): void {}
 }

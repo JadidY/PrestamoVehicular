@@ -1,20 +1,19 @@
-import { Component, OnInit, ViewChild,AfterViewInit } from '@angular/core';
-import {MatSidenav} from '@angular/material/sidenav';
+import { Component, OnInit, ViewChild, AfterViewInit } from '@angular/core';
+import { MatSidenav } from '@angular/material/sidenav';
 
 import { Destino } from 'src/app/model/Destinos';
-import { MatTableDataSource } from '@angular/material/table'
+import { MatTableDataSource } from '@angular/material/table';
 import { DestinoService } from 'src/app/service/destino.service';
-import { MatDialog } from '@angular/material/dialog'
-import {MatPaginator} from '@angular/material/paginator';
+import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
 import { DestinoDialogoComponent } from './destino-dialogo/destino-dialogo.component';
 
 @Component({
   selector: 'app-destino-listar',
   templateUrl: './destino-listar.component.html',
-  styleUrls: ['./destino-listar.component.css']
+  styleUrls: ['./destino-listar.component.css'],
 })
-
-export class DestinoListarComponent implements OnInit,AfterViewInit {
+export class DestinoListarComponent implements OnInit, AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild('sidenav') sidenav!: MatSidenav;
 
@@ -29,27 +28,30 @@ export class DestinoListarComponent implements OnInit,AfterViewInit {
   }
   shouldRun = true;
 
-  lista: Destino[] = []
+  lista: Destino[] = [];
   dataSource: MatTableDataSource<Destino> = new MatTableDataSource();
-  idMayor: number = 0
-  displayedColumns: string[] = ['codigo', 'Destino', 'historia', 'acciones1','acciones2']
+  idMayor: number = 0;
+  displayedColumns: string[] = [
+    'codigo',
+    'Destino',
+    'historia',
+    'acciones1',
+    'acciones2',
+  ];
 
-  constructor(private aS: DestinoService, private dialog: MatDialog) {
-
-  }
+  constructor(private aS: DestinoService, private dialog: MatDialog) {}
   ngOnInit(): void {
-    this.aS.list().subscribe(data => {
+    this.aS.list().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
-    })
+    });
 
-    this.aS.getList().subscribe(data => {
+    this.aS.getList().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
-    })
+    });
 
-    this.aS.getConfirmDelete().subscribe(data => {
+    this.aS.getConfirmDelete().subscribe((data) => {
       data == true ? this.eliminar(this.idMayor) : false;
-    })
-
+    });
   }
   confirm(id: number) {
     this.idMayor = id;
@@ -57,10 +59,10 @@ export class DestinoListarComponent implements OnInit,AfterViewInit {
   }
   eliminar(id: number) {
     this.aS.delete(id).subscribe(() => {
-      this.aS.list().subscribe(data => {
+      this.aS.list().subscribe((data) => {
         this.aS.setList(data);
-      })
-    })
+      });
+    });
   }
   filter(e: any) {
     this.dataSource.filter = e.target.value.trim();

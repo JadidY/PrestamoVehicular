@@ -1,20 +1,27 @@
-  <mat-sidenav-container
-      class="example-container" (backdropClick)="close('backdrop')" *ngIf="shouldRun">
-    <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose>
-      <p><button mat-button (click)="close('toggle button')">Cerrar</button></p>
-      <button mat-button routerLink="/usuarios">Usuarios</button>
-      <br>
-      <button mat-button routerLink="'clientes'">Clientes</button>
-      <br>
-      <button mat-button routerLink="/negocios">Negocio</button>
-      <br>
-      <button mat-button routerLink="/compras">Compras</button>
-      <br>
-      <button mat-button routerLink="/destinos">Destinos</button>
-    </mat-sidenav>
+<mat-sidenav-container
+  class="example-container"
+  (backdropClick)="close('backdrop')"
+  *ngIf="shouldRun"
+>
+  <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose>
+    <p><button mat-button (click)="close('toggle button')">Cerrar</button></p>
+    <button mat-button routerLink="/usuarios">Usuarios</button>
+    <br />
+    <button mat-button routerLink="'clientes'">Clientes</button>
+    <br />
+    <button mat-button routerLink="/negocios">Negocio</button>
+    <br />
+    <button mat-button routerLink="/compras">Compras</button>
+    <br />
+    <button mat-button routerLink="/destinos">Destinos</button>
+  </mat-sidenav>
 
-    <mat-sidenav-content>
-      <p><button mat-button color="warn" (click)="sidenav.open()"><span class="material-icons">menu</span></button></p>
-      <router-outlet></router-outlet>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
+  <mat-sidenav-content>
+    <p>
+      <button mat-button color="warn" (click)="sidenav.open()">
+        <span class="material-icons">menu</span>
+      </button>
+    </p>
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

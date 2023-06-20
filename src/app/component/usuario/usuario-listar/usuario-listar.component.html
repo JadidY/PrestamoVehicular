@@ -1,84 +1,93 @@
-<mat-sidenav-container class="example-container" (backdropClick)="close('backdrop')" *ngIf="shouldRun">
+<mat-sidenav-container
+  class="example-container"
+  (backdropClick)="close('backdrop')"
+  *ngIf="shouldRun"
+>
   <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose>
     <p><button mat-button (click)="close('toggle button')">Cerrar</button></p>
     <button mat-button routerLink="/usuarios">Usuarios</button>
-    <br>
+    <br />
     <button mat-button routerLink="/clientes">Alumnos</button>
-    <br>
+    <br />
     <button mat-button routerLink="/negocios">Libros</button>
-    <br>
+    <br />
     <button mat-button routerLink="/compras">Prestamos</button>
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <p><button mat-button color="warn" (click)="sidenav.open()"><span class="material-icons">menu</span></button>
+    <p>
+      <button mat-button color="warn" (click)="sidenav.open()">
+        <span class="material-icons">menu</span>
+      </button>
     </p>
     <div class="container">
-      <div style="text-align: center;">
+      <div style="text-align: center">
         <h1>Lista de Usuarios</h1>
       </div>
-      <div style="text-align: right;">
-        <button mat-raised-button color="warn" [routerLink]="['registrarus']"><span
-            class="material-icons">add</span></button>
+      <div style="text-align: right">
+        <button mat-raised-button color="warn" [routerLink]="['registrarus']">
+          <mat-icon>add</mat-icon>
+        </button>
       </div>
 
       <mat-form-field appearance="outline">
-        <input matInput (keyup)="filtrar($event)" placeholder="Buscar">
-
+        <input matInput (keyup)="filtrar($event)" placeholder="Buscar" />
       </mat-form-field>
 
       <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-
         <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef>ID.</th>
 
-          <th mat-header-cell *matHeaderCellDef> ID. </th>
-
-          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-
+          <td mat-cell *matCellDef="let element">{{ element.id }}</td>
         </ng-container>
 
         <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef>Email</th>
 
-          <th mat-header-cell *matHeaderCellDef> Email </th>
-
-          <td mat-cell *matCellDef="let element"> {{element.email}} </td>
-
+          <td mat-cell *matCellDef="let element">{{ element.email }}</td>
         </ng-container>
 
         <ng-container matColumnDef="telefono">
+          <th mat-header-cell *matHeaderCellDef>Telefono</th>
 
-          <th mat-header-cell *matHeaderCellDef> Telefono </th>
-
-          <td mat-cell *matCellDef="let element"> {{element.telefono}} </td>
-
+          <td mat-cell *matCellDef="let element">{{ element.telefono }}</td>
         </ng-container>
 
         <ng-container matColumnDef="modificar">
-
-          <th mat-header-cell *matHeaderCellDef> Modificar </th>
+          <th mat-header-cell *matHeaderCellDef>Modificar</th>
 
           <td mat-cell *matCellDef="let element">
-            <button mat-raised-button color="warn" [routerLink]="['edicion',element.id]"><span
-                class="material-icons">settings</span></button>
+            <button
+              mat-raised-button
+              color="warn"
+              [routerLink]="['edicion', element.id]"
+            >
+              <mat-icon>edit</mat-icon>
+            </button>
           </td>
-
         </ng-container>
 
         <ng-container matColumnDef="borrar">
-          <th mat-header-cell *matHeaderCellDef> Eliminar </th>
+          <th mat-header-cell *matHeaderCellDef>Eliminar</th>
           <td mat-cell *matCellDef="let element">
-            <button mat-raised-button color="accent" (click)="confirm(element.id)"><span
-                class="material-icons">delete</span></button>
+            <button
+              mat-raised-button
+              color="accent"
+              (click)="confirm(element.id)"
+            >
+              <mat-icon>delete</mat-icon>
+            </button>
           </td>
         </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
       </table>
-      <mat-paginator [pageSizeOptions]="[5, 10, 20]"
-                 showFirstLastButtons
-                 aria-label="Select page">
+      <mat-paginator
+        [pageSizeOptions]="[5, 10, 20]"
+        showFirstLastButtons
+        aria-label="Select page"
+      >
       </mat-paginator>
     </div>
   </mat-sidenav-content>

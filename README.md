@@ -24,16 +24,16 @@ npm audit fix
 
 # Iniciar Proyecto y JSON Server
 
-> Iniciar Angular Proyect
-
-```powershell
-ng serve -o
-```
-
 > Iniciar JSON Server
 
 ```powershell
 npm run server
+```
+
+> Iniciar Angular Proyect
+
+```powershell
+ng serve -o
 ```
 
 # Proyecto Angular

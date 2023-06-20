@@ -29,19 +29,20 @@ import { NegocioDialogoComponent } from './component/negocio/negocio-listar/nego
 import { DestinoDialogoComponent } from './component/destino/destino-listar/destino-dialogo/destino-dialogo.component';
 import { UsuarioDialogoComponent } from './component/usuario/usuario-listar/usuario-dialogo/usuario-dialogo.component';
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
-import { MatTableModule } from '@angular/material/table'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTableModule } from '@angular/material/table';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatInputModule } from '@angular/material/input'
-import { MatDatepickerModule } from '@angular/material/datepicker'
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MenuComponent } from './component/menu/menu.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { LandingPageComponent } from './component/landing-page/landing-page.component';
 
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -70,8 +71,7 @@ import { LandingPageComponent } from './component/landing-page/landing-page.comp
     UsuarioListarComponent,
     UsuarioCreaeditaComponent,
     UsuarioDialogoComponent,
-    LandingPageComponent
-
+    LandingPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -87,10 +87,10 @@ import { LandingPageComponent } from './component/landing-page/landing-page.comp
     MatButtonModule,
     MatDialogModule,
     MatSidenavModule,
-    MatPaginatorModule
-
+    MatPaginatorModule,
+    MatIconModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

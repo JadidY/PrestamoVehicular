@@ -1,54 +1,70 @@
-<mat-sidenav-container class="example-container" (backdropClick)="close('backdrop')" *ngIf="shouldRun">
+<mat-sidenav-container
+  class="example-container"
+  (backdropClick)="close('backdrop')"
+  *ngIf="shouldRun"
+>
   <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose>
     <p><button mat-button (click)="close('toggle button')">Cerrar</button></p>
     <button mat-button routerLink="/usuarios">Usuarios</button>
-    <br>
+    <br />
     <button mat-button routerLink="/clientes">Alumnos</button>
-    <br>
+    <br />
     <button mat-button routerLink="/negocios">Libros</button>
-    <br>
+    <br />
     <button mat-button routerLink="/compras">Prestamos</button>
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <p><button mat-button color="warn" (click)="sidenav.open()"><span class="material-icons">menu</span></button></p>
+    <p>
+      <button mat-button color="warn" (click)="sidenav.open()">
+        <span class="material-icons">menu</span>
+      </button>
+    </p>
     <div class="container">
-      <div style="text-align: center;">
-
+      <div style="text-align: center">
         <h1>Registro de usuarios</h1>
       </div>
 
       <form [formGroup]="form" (submit)="aceptar()">
-
         <mat-form-field class="example-full-width">
           <mat-label>ID</mat-label>
-          <input matInput placeholder="id" formControlName="id">
+          <input matInput placeholder="id" formControlName="id" />
         </mat-form-field>
-        <br>
+        <br />
 
         <mat-form-field class="example-full-width">
           <mat-label>Email</mat-label>
-          <input matInput placeholder="email" formControlName="emailUsuario">
+          <input matInput placeholder="email" formControlName="emailUsuario" />
         </mat-form-field>
-        <br>
+        <br />
 
         <mat-form-field class="example-full-width">
           <mat-label>Contraseña</mat-label>
-          <input matInput placeholder="contrasenia" formControlName="contraseniaUsuario">
+          <input
+            matInput
+            placeholder="contrasenia"
+            formControlName="contraseniaUsuario"
+          />
         </mat-form-field>
-        <br>
+        <br />
 
         <mat-form-field class="example-full-width">
           <mat-label>Telefono</mat-label>
-          <input matInput placeholder="telefono" formControlName="telefonoUsuario">
+          <input
+            matInput
+            placeholder="telefono"
+            formControlName="telefonoUsuario"
+          />
         </mat-form-field>
-        <br>
+        <br />
 
-        <button mat-raised-button color="accent"><span class="material-icons">save</span></button>
-        <button mat-raised-button color="warn" routerLink="/usuarios"><span
-            class="material-icons">delete</span></button>
-        <p>{{mensaje}}</p>
-
+        <button mat-raised-button color="accent">
+          <span class="material-icons">save</span>
+        </button>
+        <button mat-raised-button color="warn" routerLink="/usuarios">
+          <span class="material-icons">delete</span>
+        </button>
+        <p>{{ mensaje }}</p>
       </form>
     </div>
   </mat-sidenav-content>

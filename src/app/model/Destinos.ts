@@ -1,6 +1,5 @@
 export class Destino {
-  id: number = 0
-  nombreDestino: string = ""
-  historia: string = ""
-
+  id: number = 0;
+  nombreDestino: string = '';
+  historia: string = '';
 }

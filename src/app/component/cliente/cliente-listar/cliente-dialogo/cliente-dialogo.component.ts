@@ -5,16 +5,16 @@ import { MatDialogRef } from '@angular/material/dialog';
 @Component({
   selector: 'app-cliente-dialogo',
   templateUrl: './cliente-dialogo.component.html',
-  styleUrls: ['./cliente-dialogo.component.css']
+  styleUrls: ['./cliente-dialogo.component.css'],
 })
-export class ClienteDialogoComponent implements OnInit{
-
-  constructor(private cS: ClienteService,
-    private dialogRef: MatDialogRef<ClienteDialogoComponent>) { }
+export class ClienteDialogoComponent implements OnInit {
+  constructor(
+    private cS: ClienteService,
+    private dialogRef: MatDialogRef<ClienteDialogoComponent>
+  ) {}
   ngOnInit(): void {}
-    confirmar(estado: boolean){
-      this.cS.setConfirmDelete(estado);
-      this.dialogRef.close();
-    }
-
+  confirmar(estado: boolean) {
+    this.cS.setConfirmDelete(estado);
+    this.dialogRef.close();
+  }
 }

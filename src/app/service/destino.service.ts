@@ -4,17 +4,17 @@ import { environment } from 'src/environments/environment';
 import { Destino } from '../model/Destinos';
 import { Subject } from 'rxjs';
 
-const base_url = environment.base
+const base_url = environment.base;
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DestinoService {
-  private url = `${base_url}/Destinos`
-  private confirmarEliminacion = new Subject<Boolean>()
-  private listaCambio = new Subject<Destino[]>()
+  private url = `${base_url}/Destinos`;
+  private confirmarEliminacion = new Subject<Boolean>();
+  private listaCambio = new Subject<Destino[]>();
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
   list() {
     return this.http.get<Destino[]>(this.url);
   }
@@ -32,18 +32,18 @@ export class DestinoService {
     return this.http.get<Destino>(`${this.url}/${id}`);
   }
   update(aut: Destino) {
-    return this.http.put(this.url + "/" + aut.id, aut);
+    return this.http.put(this.url + '/' + aut.id, aut);
   }
   //http- HttpClientModule: get-post-put-delete, hacer un cuadro comparativo
 
   delete(id: number) {
-    return this.http.delete(`${this.url}/${id}`)
+    return this.http.delete(`${this.url}/${id}`);
   }
 
-  getConfirmDelete(){
+  getConfirmDelete() {
     return this.confirmarEliminacion.asObservable();
   }
-  setConfirmDelete(estado:Boolean){
+  setConfirmDelete(estado: Boolean) {
     this.confirmarEliminacion.next(estado);
   }
 }

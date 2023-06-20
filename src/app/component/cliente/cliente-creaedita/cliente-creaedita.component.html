@@ -1,83 +1,108 @@
-<mat-sidenav-container class="example-container" (backdropClick)="close('backdrop')" *ngIf="shouldRun">
+<mat-sidenav-container
+  class="example-container"
+  (backdropClick)="close('backdrop')"
+  *ngIf="shouldRun"
+>
   <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose>
     <p><button mat-button (click)="close('toggle button')">Cerrar</button></p>
     <button mat-button routerLink="/usuarios">Usuarios</button>
-    <br>
+    <br />
     <button mat-button routerLink="/clientes">Alumnos</button>
-    <br>
+    <br />
     <button mat-button routerLink="/negocios">Libros</button>
-    <br>
+    <br />
     <button mat-button routerLink="/compras">Prestamos</button>
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <p><button mat-button color="warn" (click)="sidenav.open()"><span class="material-icons">menu</span></button></p>
+    <p>
+      <button mat-button color="warn" (click)="sidenav.open()">
+        <span class="material-icons">menu</span>
+      </button>
+    </p>
     <div class="container">
-      <div style="text-align: center;">
+      <div style="text-align: center">
         <h1>Registro de Alumnos</h1>
       </div>
 
       <form [formGroup]="form" (submit)="aceptar()">
-
         <mat-form-field class="example-full-width">
           <mat-label>Codigo</mat-label>
-          <input matInput placeholder="Codigo" formControlName="id">
+          <input matInput placeholder="Codigo" formControlName="id" />
         </mat-form-field>
-        <br>
+        <br />
 
         <mat-form-field class="example-full-width">
           <mat-label>Nombre</mat-label>
-          <input matInput placeholder="Nombre" formControlName="nameCliente">
+          <input matInput placeholder="Nombre" formControlName="nameCliente" />
         </mat-form-field>
-        <br>
+        <br />
 
         <mat-form-field class="example-full-width">
           <mat-label>Apellido</mat-label>
-          <input matInput placeholder="Apellido" formControlName="apellidoCliente">
+          <input
+            matInput
+            placeholder="Apellido"
+            formControlName="apellidoCliente"
+          />
         </mat-form-field>
-        <br>
+        <br />
 
         <mat-form-field class="example-full-width">
           <mat-label>Facultad</mat-label>
-          <input matInput placeholder="Facultad" formControlName="apellidoCliente">
+          <input
+            matInput
+            placeholder="Facultad"
+            formControlName="apellidoCliente"
+          />
         </mat-form-field>
-        <br>
+        <br />
 
         <mat-form-field class="example-full-width">
           <mat-label>Carrera</mat-label>
-          <input matInput placeholder="Carrera" formControlName="emailCliente">
+          <input
+            matInput
+            placeholder="Carrera"
+            formControlName="emailCliente"
+          />
         </mat-form-field>
-        <br>
+        <br />
 
         <mat-form-field class="example-full-width">
           <mat-label>dni</mat-label>
-          <input matInput placeholder="dni" formControlName="telefono">
+          <input matInput placeholder="dni" formControlName="telefono" />
         </mat-form-field>
-        <br>
+        <br />
 
         <mat-form-field class="example-full-width">
           <mat-label>Telefono</mat-label>
-          <input matInput placeholder="Telefono" formControlName="direccion">
+          <input matInput placeholder="Telefono" formControlName="direccion" />
         </mat-form-field>
-        <br>
+        <br />
 
         <mat-form-field class="example-full-width">
           <mat-label>Direccion</mat-label>
-          <input matInput placeholder="Direccion" formControlName="IDUsuario">
+          <input matInput placeholder="Direccion" formControlName="IDUsuario" />
         </mat-form-field>
-        <br>
+        <br />
 
         <mat-form-field class="example-full-width">
           <mat-label>ID_Login</mat-label>
-          <input matInput placeholder="ID_Login" formControlName="cuentaBancaria">
+          <input
+            matInput
+            placeholder="ID_Login"
+            formControlName="cuentaBancaria"
+          />
         </mat-form-field>
-        <br>
+        <br />
 
-        <button mat-raised-button color="accent"><span class="material-icons">save</span></button>
-        <button mat-raised-button color="warn" routerLink="/clientes"><span
-            class="material-icons">delete</span></button>
-        <p>{{mensaje}}</p>
-
+        <button mat-raised-button color="accent">
+          <span class="material-icons">save</span>
+        </button>
+        <button mat-raised-button color="warn" routerLink="/clientes">
+          <span class="material-icons">delete</span>
+        </button>
+        <p>{{ mensaje }}</p>
       </form>
     </div>
   </mat-sidenav-content>
