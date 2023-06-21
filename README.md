@@ -36,6 +36,12 @@ npm run server
 ng serve -o
 ```
 
+> Angular Icons: https://acortar.link/angular-icons
+
+```html
+<mat-icon>add</mat-icon>
+```
+
 # Proyecto Angular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.

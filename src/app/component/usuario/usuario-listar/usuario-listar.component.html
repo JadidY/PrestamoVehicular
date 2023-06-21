@@ -3,15 +3,29 @@
   (backdropClick)="close('backdrop')"
   *ngIf="shouldRun"
 >
-  <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose>
-    <p><button mat-button (click)="close('toggle button')">Cerrar</button></p>
-    <button mat-button routerLink="/usuarios">Usuarios</button>
-    <br />
-    <button mat-button routerLink="/clientes">Alumnos</button>
-    <br />
-    <button mat-button routerLink="/negocios">Libros</button>
-    <br />
-    <button mat-button routerLink="/compras">Prestamos</button>
+  <mat-sidenav
+    class="sidebar"
+    #sidenav
+    (keydown.escape)="close('escape')"
+    disableClose
+  >
+    <div class="sidebar">
+      <button class="sidebar-item" mat-button (click)="close('toggle button')">
+        Cerrar
+      </button>
+      <button class="sidebar-item" mat-button routerLink="/usuarios">
+        Usuarios
+      </button>
+      <button class="sidebar-item" mat-button routerLink="/clientes">
+        Alumnos
+      </button>
+      <button class="sidebar-item" mat-button routerLink="/negocios">
+        Libros
+      </button>
+      <button class="sidebar-item" mat-button routerLink="/compras">
+        Prestamos
+      </button>
+    </div>
   </mat-sidenav>
 
   <mat-sidenav-content>
