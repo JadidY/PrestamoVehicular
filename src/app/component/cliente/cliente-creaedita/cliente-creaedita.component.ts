@@ -52,7 +52,7 @@ export class ClienteCreaeditaComponent implements OnInit {
     private cS: ClienteService,
     private router: Router,
     private route: ActivatedRoute
-  ) {}
+  ) { }
 
   aceptar(): void {
     this.cliente.id = this.form.value['id'];
@@ -65,12 +65,18 @@ export class ClienteCreaeditaComponent implements OnInit {
     this.cliente.IDUsuario = this.form.value['IDUsuario'];
     this.cliente.cuentaBancaria = this.form.value['cuentaBancaria'];
 
+    var regex = /^[A-Za-z\s]+$/;
+
     if (
-      this.form.value['nameCliente'].length > 0 &&
-      this.form.value['apellidoCliente'].length > 0 &&
-      this.form.value['emailCliente'].length > 0 &&
-      this.form.value['cuentaBancaria'].length > 0
-    ) {
+      regex.test(this.form.value['nameCliente']) && this.form.value['nameCliente'].length > 0 && this.form.value['nameCliente'].length < 50 &&
+      regex.test(this.form.value['apellidoCliente']) && this.form.value['apellidoCliente'].length > 0 && this.form.value['apellidoCliente'].length < 50 &&
+      regex.test(this.form.value['facultad']) && this.form.value['facultad'].length > 0 && this.form.value['facultad'].length < 50 &&
+      regex.test(this.form.value['emailCliente']) && this.form.value['emailCliente'].length > 0 && this.form.value['emailCliente'].length < 50 &&
+      /^\d+$/.test(this.form.value['telefono']) && this.form.value['telefono'].length == 8 &&
+      /^\d+$/.test(this.form.value['direccion']) && this.form.value['direccion'].length == 9 &&
+      this.form.value['IDUsuario'].length > 0 && this.form.value['IDUsuario'].length < 50 
+
+      ) {
       if (this.edicion) {
         this.cS.update(this.cliente).subscribe(() => {
           this.cS.list().subscribe((data) => {
@@ -86,7 +92,7 @@ export class ClienteCreaeditaComponent implements OnInit {
       }
       this.router.navigate(['clientes']);
     } else {
-      this.mensaje = 'Ingrese los datos del Alumno';
+      this.mensaje = 'No se puede guardar el alumno';
     }
   }
 
