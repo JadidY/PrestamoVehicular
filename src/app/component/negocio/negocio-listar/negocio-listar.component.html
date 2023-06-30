@@ -1,24 +1,28 @@
-<mat-sidenav-container
-  class="example-container"
-  (backdropClick)="close('backdrop')"
-  *ngIf="shouldRun"
->
-  <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose>
-    <p><button mat-button (click)="close('toggle button')">Cerrar</button></p>
-    <button mat-button routerLink="/usuarios">Usuarios</button>
-    <br />
-    <button mat-button routerLink="/clientes">Alumnos</button>
-    <br />
-    <button mat-button routerLink="/negocios">Libros</button>
-    <br />
-    <button mat-button routerLink="/compras">Prestamos</button>
-    <br />
+<mat-sidenav-container class="example-container" (backdropClick)="close('backdrop')" *ngIf="shouldRun">
+  <mat-sidenav class="sidebar" #sidenav (keydown.escape)="close('escape')" disableClose>
+    <div class="sidebar">
+      <button class="sidebar-item" mat-button (click)="close('toggle button')">
+        Cerrar
+      </button>
+      <button class="sidebar-item" mat-button routerLink="/usuarios">
+        Usuarios
+      </button>
+      <button class="sidebar-item" mat-button routerLink="/clientes">
+        Alumnos
+      </button>
+      <button class="sidebar-item active" mat-button routerLink="/negocios">
+        Libros
+      </button>
+      <button class="sidebar-item" mat-button routerLink="/compras">
+        Prestamos
+      </button>
+    </div>
   </mat-sidenav>
 
   <mat-sidenav-content>
     <p>
-      <button mat-button color="warn" (click)="sidenav.open()">
-        <span class="material-icons">menu</span>
+      <button mat-button (click)="sidenav.open()">
+        <span class="material-icons menu">menu</span>
       </button>
     </p>
     <div class="container">
@@ -27,7 +31,7 @@
       </div>
 
       <div style="text-align: right">
-        <button mat-raised-button color="warn" [routerLink]="['registrarng']">
+        <button mat-raised-button [routerLink]="['registrarng']">
           <mat-icon>add</mat-icon>
         </button>
       </div>
@@ -79,11 +83,7 @@
         <ng-container matColumnDef="accion01">
           <th mat-header-cell *matHeaderCellDef>Modificar</th>
           <td mat-cell *matCellDef="let element">
-            <button
-              mat-raised-button
-              color="warn"
-              [routerLink]="['edicion', element.id]"
-            >
+            <button mat-raised-button color="warn" [routerLink]="['edicion', element.id]">
               <mat-icon>edit</mat-icon>
             </button>
           </td>
@@ -91,11 +91,7 @@
         <ng-container matColumnDef="accion02">
           <th mat-header-cell *matHeaderCellDef>Eliminar</th>
           <td mat-cell *matCellDef="let element">
-            <button
-              mat-raised-button
-              color="accent"
-              (click)="confirm(element.id)"
-            >
+            <button mat-raised-button color="accent" (click)="confirm(element.id)">
               <mat-icon>delete</mat-icon>
             </button>
           </td>
@@ -105,11 +101,7 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
       </table>
 
-      <mat-paginator
-        [pageSizeOptions]="[5, 10, 20]"
-        showFirstLastButtons
-        aria-label="Select page"
-      >
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page">
       </mat-paginator>
     </div>
   </mat-sidenav-content>

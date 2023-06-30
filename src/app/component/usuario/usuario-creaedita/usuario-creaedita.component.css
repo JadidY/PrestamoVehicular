@@ -5,3 +5,38 @@
   left: 0;
   right: 0;
 }
+
+.mat-mdc-raised-button .mat-icon {
+  margin: 0;
+}
+
+mat-sidenav {
+  width: 250px;
+}
+
+.sidebar {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.sidebar-item {
+  width: 100%;
+  height: 50px;
+}
+
+.active,
+.mat-mdc-raised-button:not(:disabled) {
+  background-color: #ff9563;
+}
+
+.menu {
+  color: #ff9563;
+}
+
+.mdc-button {
+  margin-left: 10px;
+}

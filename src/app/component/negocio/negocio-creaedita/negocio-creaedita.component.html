@@ -1,18 +1,22 @@
-<mat-sidenav-container
-  class="example-container"
-  (backdropClick)="close('backdrop')"
-  *ngIf="shouldRun"
->
-  <mat-sidenav #sidenav (keydown.escape)="close('escape')" disableClose>
-    <p><button mat-button (click)="close('toggle button')">Cerrar</button></p>
-    <button mat-button routerLink="/usuarios">Usuarios</button>
-    <br />
-    <button mat-button routerLink="/clientes">Alumnos</button>
-    <br />
-    <button mat-button routerLink="/negocios">Libros</button>
-    <br />
-    <button mat-button routerLink="/compras">Prestamos</button>
-    <br />
+<mat-sidenav-container class="example-container" (backdropClick)="close('backdrop')" *ngIf="shouldRun">
+  <mat-sidenav class="sidebar" #sidenav (keydown.escape)="close('escape')" disableClose>
+    <div class="sidebar">
+      <button class="sidebar-item" mat-button (click)="close('toggle button')">
+        Cerrar
+      </button>
+      <button class="sidebar-item" mat-button routerLink="/usuarios">
+        Usuarios
+      </button>
+      <button class="sidebar-item" mat-button routerLink="/clientes">
+        Alumnos
+      </button>
+      <button class="sidebar-item active" mat-button routerLink="/negocios">
+        Libros
+      </button>
+      <button class="sidebar-item" mat-button routerLink="/compras">
+        Prestamos
+      </button>
+    </div>
   </mat-sidenav>
 
   <mat-sidenav-content>
@@ -23,7 +27,7 @@
     </p>
     <div class="container">
       <div style="text-align: center">
-        <h1>Registrar Negocios</h1>
+        <h1>Registrar nuevo Libro</h1>
       </div>
       <form>
         <form [formGroup]="form" (submit)="aceptar()">
@@ -35,21 +39,13 @@
 
           <mat-form-field class="example-full-width">
             <mat-label>Titulo</mat-label>
-            <input
-              matInput
-              placeholder="Titulo"
-              formControlName="nameNegocio"
-            />
+            <input matInput placeholder="Titulo" formControlName="nameNegocio" />
           </mat-form-field>
           <br />
 
           <mat-form-field class="example-full-width">
             <mat-label>Descripcion</mat-label>
-            <input
-              matInput
-              placeholder="Descripcion"
-              formControlName="direccionNegocio"
-            />
+            <input matInput placeholder="Descripcion" formControlName="direccionNegocio" />
           </mat-form-field>
           <br />
 
@@ -61,39 +57,22 @@
 
           <mat-form-field appearance="fill">
             <mat-label>Fecha</mat-label>
-            <input
-              matInput
-              required
-              [matDatepicker]="picker"
-              formControlName="Fecha"
-              [max]="fecha_max"
-            />
+            <input matInput required [matDatepicker]="picker" formControlName="Fecha" [max]="fecha_max" />
             <mat-hint>MM/DD/YYYY</mat-hint>
-            <mat-datepicker-toggle
-              matIconSuffix
-              [for]="picker"
-            ></mat-datepicker-toggle>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
           <br />
 
           <mat-form-field class="example-full-width">
             <mat-label>Genero</mat-label>
-            <input
-              matInput
-              placeholder="Genero"
-              formControlName="tipoNegocio"
-            />
+            <input matInput placeholder="Genero" formControlName="tipoNegocio" />
           </mat-form-field>
           <br />
 
           <mat-form-field class="example-full-width">
             <mat-label>Editorial</mat-label>
-            <input
-              matInput
-              placeholder="Editorial"
-              formControlName="IDUsuario"
-            />
+            <input matInput placeholder="Editorial" formControlName="IDUsuario" />
           </mat-form-field>
           <br />
 
