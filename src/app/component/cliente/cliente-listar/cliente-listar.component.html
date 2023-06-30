@@ -5,7 +5,7 @@
         Cerrar
       </button>
       <button class="sidebar-item" mat-button routerLink="/usuarios">
-        Usuarios
+        Autores
       </button>
       <button class="sidebar-item active" mat-button routerLink="/clientes">
         Alumnos
@@ -65,7 +65,7 @@
           <th mat-header-cell *matHeaderCellDef>Facultad</th>
 
           <td mat-cell *matCellDef="let element">
-            {{ element.anioNacimiento }}
+            {{ element.facultad }}
           </td>
         </ng-container>
 

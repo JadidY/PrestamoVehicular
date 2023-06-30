@@ -18,6 +18,8 @@ export class UsuarioListarComponent implements OnInit, AfterViewInit {
   dataSource: MatTableDataSource<Usuario> = new MatTableDataSource();
   displayedColumns: string[] = [
     'id',
+    'nombre',
+    'pais',
     'email',
     'telefono',
     'modificar',

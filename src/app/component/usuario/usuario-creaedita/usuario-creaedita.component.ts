@@ -36,6 +36,8 @@ export class UsuarioCreaeditaComponent implements OnInit {
 
     this.form = new FormGroup({
       id: new FormControl(),
+      nombre: new FormControl(),
+      pais: new FormControl(),
       emailUsuario: new FormControl(),
       contraseniaUsuario: new FormControl(),
       telefonoUsuario: new FormControl(),
@@ -50,11 +52,17 @@ export class UsuarioCreaeditaComponent implements OnInit {
 
   aceptar(): void {
     this.usuario.id = this.form.value['id'];
+    this.usuario.nombre = this.form.value['nombre'];
+    this.usuario.pais = this.form.value['pais'];
     this.usuario.email = this.form.value['emailUsuario'];
     this.usuario.contrasenia = this.form.value['contraseniaUsuario'];
     this.usuario.telefono = this.form.value['telefonoUsuario'];
 
     if (
+      this.form.value['emailUsuario'].length > 0 &&
+      this.form.value['nombre'].length > 0 &&
+      this.form.value['nombre'].length < 150 &&
+      this.form.value['pais'].length > 0 &&
       this.form.value['emailUsuario'].length > 0 &&
       this.form.value['contraseniaUsuario'].length > 0 &&
       this.form.value['telefonoUsuario'].length > 0
@@ -83,6 +91,8 @@ export class UsuarioCreaeditaComponent implements OnInit {
       this.uS.listID(this.id).subscribe((data) => {
         this.form = new FormGroup({
           id: new FormControl(data.id),
+          nombre: new FormControl(data.nombre),
+          pais: new FormControl(data.pais),
           emailUsuario: new FormControl(data.email),
           contraseniaUsuario: new FormControl(data.contrasenia),
           telefonoUsuario: new FormControl(data.telefono),

@@ -39,7 +39,7 @@ export class ClienteCreaeditaComponent implements OnInit {
       id: new FormControl(),
       nameCliente: new FormControl(),
       apellidoCliente: new FormControl(),
-      anioNacimiento: new FormControl(),
+      facultad: new FormControl(),
       emailCliente: new FormControl(),
       telefono: new FormControl(),
       direccion: new FormControl(),
@@ -58,7 +58,7 @@ export class ClienteCreaeditaComponent implements OnInit {
     this.cliente.id = this.form.value['id'];
     this.cliente.nameCliente = this.form.value['nameCliente'];
     this.cliente.apellidoCliente = this.form.value['apellidoCliente'];
-    this.cliente.anioNacimiento = this.form.value['anioNacimiento'];
+    this.cliente.facultad = this.form.value['facultad'];
     this.cliente.emailCliente = this.form.value['emailCliente'];
     this.cliente.telefono = this.form.value['telefono'];
     this.cliente.direccion = this.form.value['direccion'];
@@ -97,7 +97,7 @@ export class ClienteCreaeditaComponent implements OnInit {
           id: new FormControl(data.id),
           nameCliente: new FormControl(data.nameCliente),
           apellidoCliente: new FormControl(data.apellidoCliente),
-          anioNacimiento: new FormControl(data.anioNacimiento),
+          facultad: new FormControl(data.facultad),
           emailCliente: new FormControl(data.emailCliente),
           telefono: new FormControl(data.telefono),
           direccion: new FormControl(data.direccion),

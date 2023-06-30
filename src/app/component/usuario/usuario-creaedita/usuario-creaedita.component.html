@@ -5,7 +5,7 @@
         Cerrar
       </button>
       <button class="sidebar-item active" mat-button routerLink="/usuarios">
-        Usuarios
+        Autores
       </button>
       <button class="sidebar-item" mat-button routerLink="/clientes">
         Alumnos
@@ -27,7 +27,7 @@
     </p>
     <div class="container">
       <div style="text-align: center">
-        <h1>Registrar nuevo Usuario</h1>
+        <h1>Registrar nuevo Autor</h1>
       </div>
 
       <form [formGroup]="form" (submit)="aceptar()">
@@ -38,14 +38,20 @@
         <br />
 
         <mat-form-field class="example-full-width">
-          <mat-label>Email</mat-label>
-          <input matInput placeholder="email" formControlName="emailUsuario" />
+          <mat-label>Nombre</mat-label>
+          <input matInput placeholder="nombre" formControlName="nombre" />
         </mat-form-field>
         <br />
 
         <mat-form-field class="example-full-width">
-          <mat-label>Contraseña</mat-label>
-          <input matInput placeholder="contrasenia" formControlName="contraseniaUsuario" />
+          <mat-label>Pais</mat-label>
+          <input matInput placeholder="pais" formControlName="pais" />
+        </mat-form-field>
+        <br />
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="email" formControlName="emailUsuario" />
         </mat-form-field>
         <br />
 
