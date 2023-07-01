@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { compras } from 'src/app/model/compras';
 import * as moment from 'moment';
 import { ComprasService } from 'src/app/service/compras.service';
@@ -27,12 +27,16 @@ export class ComprasCreaeditaComponent implements OnInit {
   form: FormGroup = new FormGroup({});
   compras: compras = new compras();
   mensaje: string = '';
-  fecha_max: Date = moment().add(1, 'days').toDate();
+  fechaPControl!: FormControl;
+  fecha_min: Date = new Date();
+  fecha_max: Date = new Date();
+  // fecha_max: Date = moment(this.fecha_min).add(14, 'days').toDate();
 
   ngOnInit(): void {
     this.route.params.subscribe((data: Params) => {
       this.id = data['id'];
       this.edicion = data['id'] != null;
+      this.fechaPControl = this.form.get('FechaP') as FormControl;
       this.init();
     });
 
@@ -47,13 +51,23 @@ export class ComprasCreaeditaComponent implements OnInit {
       FechaD: new FormControl(),
       FechaP: new FormControl(),
     });
+
+    this.form.get('FechaP')?.valueChanges.subscribe((fechaP: Date) => {
+      this.form.get('FechaD')?.setValue(null);
+      this.fecha_min = fechaP;
+      this.fecha_max = moment(fechaP).add(14, 'days').toDate();
+      this.form.get('FechaD')?.setValidators([
+        Validators.min(this.fecha_min.valueOf()),
+        Validators.max(this.fecha_max.valueOf())
+      ]);
+    });
   }
 
   constructor(
     private cS: ComprasService,
     private router: Router,
     private route: ActivatedRoute
-  ) { }
+  ) {}
 
   aceptar(): void {
     this.compras.id = this.form.value['id'];
@@ -65,13 +79,14 @@ export class ComprasCreaeditaComponent implements OnInit {
     this.compras.Negocio_ID = this.form.value['Negocio_ID'];
 
     var regex = /^[A-Za-z\s]+$/;
-    
 
     if (
-      (this.form.value['descripcion'] === 'pendiente' || this.form.value['descripcion'] === 'libre') &&
-      (this.compras.fechad.getDate() - this.compras.fechap.getDate() <= 14 && this.compras.fechad.getDate() - this.compras.fechap.getDate() >= 0)
-      ) {
-      console.log("Entro esta vaina")
+      (this.form.value['descripcion'] === 'pendiente' ||
+        this.form.value['descripcion'] === 'libre') &&
+      this.compras.fechad.getDate() - this.compras.fechap.getDate() <= 14 &&
+      this.compras.fechad.getDate() - this.compras.fechap.getDate() >= 0
+    ) {
+      console.log('Entro esta vaina');
       if (this.edicion) {
         this.cS.update(this.compras).subscribe(() => {
           this.cS.list().subscribe((data) => {
