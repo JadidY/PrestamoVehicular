@@ -44,7 +44,7 @@ export class ClienteListarComponent implements OnInit, AfterViewInit {
     'acciones2',
   ];
 
-  constructor(private cS: ClienteService, private dialog: MatDialog) {}
+  constructor(private cS: ClienteService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.cS.list().subscribe((data) => {
@@ -52,11 +52,12 @@ export class ClienteListarComponent implements OnInit, AfterViewInit {
     });
     this.cS.getList().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
-
-      this.cS.getConfirmDelete().subscribe((data) => {
-        data == true ? this.eliminar(this.idMayor) : false;
-      });
     });
+
+    this.cS.getConfirmDelete().subscribe((data) => {
+      data == true ? this.eliminar(this.idMayor) : false;
+    });
+
   }
   confirm(id: number) {
     this.idMayor = id;
