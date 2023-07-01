@@ -49,15 +49,18 @@
         </mat-form-field>
         <br />
 
-        <mat-form-field class="example-full-width">
-          <mat-label>Email</mat-label>
-          <input matInput placeholder="email" formControlName="emailUsuario" />
+        <mat-form-field appearance="fill">
+          <mat-label>Fecha</mat-label>
+          <input matInput required [matDatepicker]="picker" formControlName="fecha"/>
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
         </mat-form-field>
         <br />
 
         <mat-form-field class="example-full-width">
-          <mat-label>Telefono</mat-label>
-          <input matInput placeholder="telefono" formControlName="telefonoUsuario" />
+          <mat-label>Biografia</mat-label>
+          <input matInput placeholder="biografia" formControlName="biografia" />
         </mat-form-field>
         <br />
 

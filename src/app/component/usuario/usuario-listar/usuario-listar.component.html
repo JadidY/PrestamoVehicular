@@ -58,16 +58,16 @@
           <td mat-cell *matCellDef="let element">{{ element.pais }}</td>
         </ng-container>
 
-        <ng-container matColumnDef="email">
-          <th mat-header-cell *matHeaderCellDef>Email</th>
+        <ng-container matColumnDef="fecha">
+          <th mat-header-cell *matHeaderCellDef>Fecha</th>
 
-          <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+          <td mat-cell *matCellDef="let element">{{ element.fecha | date : "dd/MM/yyyy" }}</td>
         </ng-container>
 
-        <ng-container matColumnDef="telefono">
-          <th mat-header-cell *matHeaderCellDef>Telefono</th>
+        <ng-container matColumnDef="biografia">
+          <th mat-header-cell *matHeaderCellDef>Biografia</th>
 
-          <td mat-cell *matCellDef="let element">{{ element.telefono }}</td>
+          <td mat-cell *matCellDef="let element">{{ element.biografia }}</td>
         </ng-container>
 
         <ng-container matColumnDef="modificar">

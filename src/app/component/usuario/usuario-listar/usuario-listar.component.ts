@@ -20,10 +20,8 @@ export class UsuarioListarComponent implements OnInit, AfterViewInit {
     'id',
     'nombre',
     'pais',
-    'email',
-    'telefono',
-    'modificar',
-    'borrar',
+    'fecha',
+    'biografia'
   ];
 
   ngAfterViewInit() {

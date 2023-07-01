@@ -37,10 +37,9 @@ export class UsuarioCreaeditaComponent implements OnInit {
     this.form = new FormGroup({
       id: new FormControl(),
       nombre: new FormControl(),
-      pais: new FormControl(),
-      emailUsuario: new FormControl(),
-      contraseniaUsuario: new FormControl(),
-      telefonoUsuario: new FormControl(),
+      pais: new FormControl(),     
+      fecha: new FormControl(),     
+      biografia: new FormControl()
     });
   }
 
@@ -54,18 +53,18 @@ export class UsuarioCreaeditaComponent implements OnInit {
     this.usuario.id = this.form.value['id'];
     this.usuario.nombre = this.form.value['nombre'];
     this.usuario.pais = this.form.value['pais'];
-    this.usuario.email = this.form.value['emailUsuario'];
-    this.usuario.contrasenia = this.form.value['contraseniaUsuario'];
-    this.usuario.telefono = this.form.value['telefonoUsuario'];
+    this.usuario.fecha = this.form.value['fecha'];
+    this.usuario.biografia = this.form.value['biografia'];
+
+    var regex = /^[A-Za-z\s]+$/;
 
     if (
-      this.form.value['emailUsuario'].length > 0 &&
+      regex.test(this.form.value['nombre']) && this.form.value['nombre'].length <= 50 &&
       this.form.value['nombre'].length > 0 &&
-      this.form.value['nombre'].length < 150 &&
+      regex.test(this.form.value['pais']) && this.form.value['pais'].length <= 15 &&
       this.form.value['pais'].length > 0 &&
-      this.form.value['emailUsuario'].length > 0 &&
-      this.form.value['contraseniaUsuario'].length > 0 &&
-      this.form.value['telefonoUsuario'].length > 0
+      regex.test(this.form.value['biografia']) && this.form.value['biografia'].length <= 200 &&
+      this.form.value['biografia'].length > 0
     ) {
       if (this.edicion) {
         this.uS.update(this.usuario).subscribe(() => {
@@ -93,9 +92,7 @@ export class UsuarioCreaeditaComponent implements OnInit {
           id: new FormControl(data.id),
           nombre: new FormControl(data.nombre),
           pais: new FormControl(data.pais),
-          emailUsuario: new FormControl(data.email),
-          contraseniaUsuario: new FormControl(data.contrasenia),
-          telefonoUsuario: new FormControl(data.telefono),
+          emailUsuario: new FormControl(data.biografia)
         });
       });
     }
