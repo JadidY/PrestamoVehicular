@@ -142,7 +142,7 @@ module.exports = function () {
       {
         id: 1,
         cantidad: "01/04/2023",
-        precio_total: "15/04/2023",
+        precio_total: "01/10/2023",
         descripcion: "Pendiente",
         fecha: "1",
         Cliente_ID: "2",
@@ -150,8 +150,8 @@ module.exports = function () {
       },
       {
         id: 2,
-        cantidad: "30/04/2023",
-        precio_total: "14/05/2023",
+        cantidad: "04/15/2023",
+        precio_total: "04/23/2023",
         descripcion: "Pendiente",
         fecha: "2",
         Cliente_ID: "1",
@@ -159,8 +159,8 @@ module.exports = function () {
       },
       {
         id: 3,
-        cantidad: "01/05/2023",
-        precio_total: "16/05/2023",
+        cantidad: "05/12/2023",
+        precio_total: "05/20/2023",
         descripcion: "Pendiente",
         fecha: "3",
         Cliente_ID: "3",
@@ -168,8 +168,8 @@ module.exports = function () {
       },
       {
         id: 4,
-        cantidad: "05/05/2023",
-        precio_total: "19/05/2023",
+        cantidad: "05/17/2023",
+        precio_total: "05/25/2023",
         descripcion: "Pendiente",
         fecha: "4",
         Cliente_ID: "4",
@@ -177,8 +177,8 @@ module.exports = function () {
       },
       {
         id: 5,
-        cantidad: "04/05/2023",
-        precio_total: "18/04/2023",
+        cantidad: "05/18/2023",
+        precio_total: "05/29/2023",
         descripcion: "Pendiente",
         fecha: "5",
         Cliente_ID: "5",

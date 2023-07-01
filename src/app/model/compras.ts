@@ -1,7 +1,7 @@
 export class compras {
   id: number = 0;
-  cantidad: number = 0;
-  precio_total: number = 3.1416;
+  cantidad: Date = new Date(Date.now());
+  precio_total: Date = new Date(Date.now());
   descripcion: string = '';
   fecha: Date = new Date(Date.now());
   Cliente_ID: string = '';

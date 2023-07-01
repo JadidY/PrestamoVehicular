@@ -38,8 +38,16 @@
         <br />
 
         <mat-form-field appearance="fill">
-          <mat-label>FechaP</mat-label>
-          <input matInput required [matDatepicker]="picker" formControlName="fecha" [max]="fecha_max" />
+          <mat-label>Fecha Prestamo</mat-label>
+          <input matInput required [matDatepicker]="picker" formControlName="FechaP" [max]="fecha_max" />
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Fecha Devolucion</mat-label>
+          <input matInput required [matDatepicker]="picker" formControlName="FechaD" [max]="fecha_max" />
           <mat-hint>MM/DD/YYYY</mat-hint>
           <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
@@ -52,28 +60,25 @@
         <br />
 
         <mat-form-field class="example-full-width">
-          <mat-label>Descripcion</mat-label>
-          <input matInput required placeholder="Descripcion" formControlName="descripcion" />
-        </mat-form-field>
-        <br />
-
-        <mat-form-field appearance="fill">
-          <mat-label>Fecha_Compra</mat-label>
-          <input matInput required [matDatepicker]="picker" formControlName="fecha" [max]="fecha_max" />
-          <mat-hint>MM/DD/YYYY</mat-hint>
-          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
+          <mat-label>Estado</mat-label>
+          <input matInput required placeholder="Estado" formControlName="descripcion" />
         </mat-form-field>
         <br />
 
         <mat-form-field class="example-full-width">
-          <mat-label>Cliente_id</mat-label>
+          <mat-label>ID_Alumno</mat-label>
+          <input matInput required placeholder="fecha" formControlName="fecha" />
+        </mat-form-field>
+        <br />
+
+        <mat-form-field class="example-full-width">
+          <mat-label>ID_Libro</mat-label>
           <input matInput required placeholder="Cliente_id" formControlName="Cliente_ID" />
         </mat-form-field>
         <br />
 
         <mat-form-field class="example-full-width">
-          <mat-label>Negocio_id</mat-label>
+          <mat-label>ID_Bibliotecario</mat-label>
           <input matInput required placeholder="Negocio_id" formControlName="Negocio_ID" />
         </mat-form-field>
         <br />

@@ -59,13 +59,14 @@ export class NegocioCreaeditaComponent implements OnInit {
     this.negocio.emailNegocio = this.form.value['emailNegocio'];
     this.negocio.tipoNegocio = this.form.value['tipoNegocio'];
     this.negocio.IDUsuario = this.form.value['IDUsuario'];
+    
+    var regex = /^[A-Za-z\s]+$/;
+
     if (
-      this.form.value['nameNegocio'].length > 0 &&
-      this.form.value['direccionNegocio'].length > 0 &&
-      this.form.value['telefono'].length > 0 &&
-      this.form.value['emailNegocio'].length > 0 &&
-      this.form.value['tipoNegocio'].length > 0 &&
-      this.form.value['IDUsuario'].length > 0
+      regex.test(this.form.value['nameNegocio']) && this.form.value['nameNegocio'].length > 0 && this.form.value['nameNegocio'].length < 50 &&
+      regex.test(this.form.value['direccionNegocio']) && this.form.value['direccionNegocio'].length > 0 && this.form.value['direccionNegocio'].length < 50 &&
+      this.form.value['telefono'] === 'libre' || this.form.value['telefono'] === 'ocupado' &&
+      regex.test(this.form.value['tipoNegocio']) && this.form.value['tipoNegocio'].length > 0 && this.form.value['tipoNegocio'].length < 50
     ) {
       if (this.edicion) {
         this.aS.update(this.negocio).subscribe(() => {
@@ -82,7 +83,7 @@ export class NegocioCreaeditaComponent implements OnInit {
       }
       this.router.navigate(['negocios']);
     } else {
-      this.mensaje = 'Ingrese los datos del negocio';
+      this.mensaje = 'No se puede guardar el libro';
     }
   }
   init() {

@@ -51,7 +51,7 @@ export class ComprasCreaeditaComponent implements OnInit {
     private cS: ComprasService,
     private router: Router,
     private route: ActivatedRoute
-  ) {}
+  ) { }
 
   aceptar(): void {
     this.compras.id = this.form.value['id'];
@@ -61,10 +61,16 @@ export class ComprasCreaeditaComponent implements OnInit {
     this.compras.fecha = this.form.value['fecha'];
     this.compras.Cliente_ID = this.form.value['Cliente_ID'];
     this.compras.Negocio_ID = this.form.value['Negocio_ID'];
+
+    var regex = /^[A-Za-z\s]+$/;
+    var fechaCantidad = new Date(this.form.value['cantidad']);
+  var fechaPrecioTotal = new Date(this.form.value['precio_total']);
+  var diferencia = Math.abs(fechaCantidad.getTime() - fechaPrecioTotal.getTime());
+  var dosSemanasEnMilisegundos = 2 * 7 * 24 * 60 * 60 * 1000;
+
     if (
-      this.form.value['cantidad'] > 0 &&
-      this.form.value['precio_total'] > 0 &&
-      this.form.value['descripcion'].length > 0
+      this.form.value['descripcion'] === 'pendiente' || this.form.value['descripcion'] === 'libre' &&
+      diferencia <= dosSemanasEnMilisegundos
     ) {
       if (this.edicion) {
         this.cS.update(this.compras).subscribe(() => {
@@ -81,7 +87,7 @@ export class ComprasCreaeditaComponent implements OnInit {
       }
       this.router.navigate(['compras']);
     } else {
-      this.mensaje = 'Ingrese los datos de la compra';
+      this.mensaje = 'No se puede guardar el prestamo';
     }
   }
 
