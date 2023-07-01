@@ -43,7 +43,7 @@ export class NegocioCreaeditaComponent implements OnInit {
       telefono: new FormControl(),
       emailNegocio: new FormControl(),
       tipoNegocio: new FormControl(),
-      IDUsuario: new FormControl(),
+      IDusuario: new FormControl(),
     });
   }
   constructor(
@@ -58,14 +58,14 @@ export class NegocioCreaeditaComponent implements OnInit {
     this.negocio.telefono = this.form.value['telefono'];
     this.negocio.emailNegocio = this.form.value['emailNegocio'];
     this.negocio.tipoNegocio = this.form.value['tipoNegocio'];
-    this.negocio.IDUsuario = this.form.value['IDUsuario'];
+    this.negocio.IDusuario = this.form.value['IDusuario'];
     
     var regex = /^[A-Za-z\s]+$/;
 
     if (
       regex.test(this.form.value['nameNegocio']) && this.form.value['nameNegocio'].length > 0 && this.form.value['nameNegocio'].length < 50 &&
       regex.test(this.form.value['direccionNegocio']) && this.form.value['direccionNegocio'].length > 0 && this.form.value['direccionNegocio'].length < 50 &&
-      this.form.value['telefono'] === 'libre' || this.form.value['telefono'] === 'ocupado' &&
+      (this.form.value['telefono'] === 'libre' || this.form.value['telefono'] === 'ocupado') &&
       regex.test(this.form.value['tipoNegocio']) && this.form.value['tipoNegocio'].length > 0 && this.form.value['tipoNegocio'].length < 50
     ) {
       if (this.edicion) {
@@ -96,7 +96,7 @@ export class NegocioCreaeditaComponent implements OnInit {
           telefono: new FormControl(data.telefono),
           emailNegocio: new FormControl(data.emailNegocio),
           tipoNegocio: new FormControl(data.tipoNegocio),
-          IDUsuario: new FormControl(data.IDUsuario),
+          IDusuario: new FormControl(data.IDusuario),
         });
       });
     }

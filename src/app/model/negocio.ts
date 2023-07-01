@@ -3,7 +3,7 @@ export class Negocio {
   nameNegocio: string = '';
   direccionNegocio: string = '';
   telefono: string = '';
-  emailNegocio: string = '';
+  emailNegocio: Date = new Date(Date.now());
   tipoNegocio: string = '';
-  IDUsuario: string = '';
+  IDusuario: string = '';
 }
