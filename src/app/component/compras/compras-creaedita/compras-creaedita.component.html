@@ -47,17 +47,11 @@
 
         <mat-form-field appearance="fill">
           <mat-label>Fecha Devolucion</mat-label>
-          <input matInput required [matDatepicker]="picker" formControlName="FechaD" [max]="fecha_max" />
+          <input matInput required [matDatepicker]="picker2" formControlName="FechaD" [max]="fecha_max" />
           <mat-hint>MM/DD/YYYY</mat-hint>
-          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
+          <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+          <mat-datepicker #picker2></mat-datepicker>
         </mat-form-field>
-
-        <mat-form-field class="example-full-width">
-          <mat-label>Precio_Total</mat-label>
-          <input matInput required placeholder="Precio_Total" formControlName="precio_total" />
-        </mat-form-field>
-        <br />
 
         <mat-form-field class="example-full-width">
           <mat-label>Estado</mat-label>

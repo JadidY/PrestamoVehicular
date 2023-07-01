@@ -45,7 +45,7 @@ module.exports = function () {
         direccionNegocio:
           "Publicado por DrossRotzank, un youtuber venezolano que actualmente radica en Argentina.",
         telefono: "Disponible",
-        emailNegocio: "04/06/2014",
+        emailNegocio: "2014-06-04",
         tipoNegocio: "Ficcion",
         IDusuario: "Manzanitas",
       },
@@ -55,7 +55,7 @@ module.exports = function () {
         direccionNegocio:
           "Cuando la policía le preguntó por el autor de las torturas la mujer inculpó al marqués de Sade.",
         telefono: "Disponible",
-        emailNegocio: "20/12/1729",
+        emailNegocio: "1729-12-20",
         tipoNegocio: "Romantico",
         IDusuario: "Provervios",
       },
@@ -65,7 +65,7 @@ module.exports = function () {
         direccionNegocio:
           "Tu vida es un libro a medio construir, un juego a veces provocador, pero siempre extraordinario",
         telefono: "Prestado",
-        emailNegocio: "21/10/2016",
+        emailNegocio: "2016-10-21",
         tipoNegocio: "Comic",
         IDusuario: "Cosmos",
       },
@@ -75,7 +75,7 @@ module.exports = function () {
         direccionNegocio:
           "Es una colección de ensayos, observaciones y rituales publicada por Anton LaVey en 1969.",
         telefono: "Disponible",
-        emailNegocio: "10/10/1969",
+        emailNegocio: "1969-10-10",
         tipoNegocio: "Cultura",
         IDusuario: "Papa Franciso",
       },
@@ -141,8 +141,8 @@ module.exports = function () {
     Compras: [
       {
         id: 1,
-        cantidad: "01/04/2023",
-        precio_total: "01/10/2023",
+        fechap: "2023-04-01",
+        fechad: "2023-04-10",
         descripcion: "Pendiente",
         fecha: "1",
         Cliente_ID: "2",
@@ -150,8 +150,8 @@ module.exports = function () {
       },
       {
         id: 2,
-        cantidad: "04/15/2023",
-        precio_total: "04/23/2023",
+        fechap: "2023-05-04",
+        fechad: "2023-05-14",
         descripcion: "Pendiente",
         fecha: "2",
         Cliente_ID: "1",
@@ -159,8 +159,8 @@ module.exports = function () {
       },
       {
         id: 3,
-        cantidad: "05/12/2023",
-        precio_total: "05/20/2023",
+        fechap: "2023-12-14",
+        fechad: "2023-12-21",
         descripcion: "Pendiente",
         fecha: "3",
         Cliente_ID: "3",
@@ -168,8 +168,8 @@ module.exports = function () {
       },
       {
         id: 4,
-        cantidad: "05/17/2023",
-        precio_total: "05/25/2023",
+        fechap: "2023-05-17",
+        fechad: "2023-05-25",
         descripcion: "Pendiente",
         fecha: "4",
         Cliente_ID: "4",
@@ -177,8 +177,8 @@ module.exports = function () {
       },
       {
         id: 5,
-        cantidad: "05/18/2023",
-        precio_total: "05/29/2023",
+        fechap: "2023-05-18",
+        fechad: "2023-05-29",
         descripcion: "Pendiente",
         fecha: "5",
         Cliente_ID: "5",

@@ -44,6 +44,8 @@ export class ComprasCreaeditaComponent implements OnInit {
       fecha: new FormControl(),
       Cliente_ID: new FormControl(),
       Negocio_ID: new FormControl(),
+      FechaD: new FormControl(),
+      FechaP: new FormControl(),
     });
   }
 
@@ -55,23 +57,21 @@ export class ComprasCreaeditaComponent implements OnInit {
 
   aceptar(): void {
     this.compras.id = this.form.value['id'];
-    this.compras.cantidad = this.form.value['cantidad'];
-    this.compras.precio_total = this.form.value['precio_total'];
+    this.compras.fechap = this.form.value['FechaP'];
+    this.compras.fechad = this.form.value['FechaD'];
     this.compras.descripcion = this.form.value['descripcion'];
     this.compras.fecha = this.form.value['fecha'];
     this.compras.Cliente_ID = this.form.value['Cliente_ID'];
     this.compras.Negocio_ID = this.form.value['Negocio_ID'];
 
     var regex = /^[A-Za-z\s]+$/;
-    var fechaCantidad = new Date(this.form.value['cantidad']);
-  var fechaPrecioTotal = new Date(this.form.value['precio_total']);
-  var diferencia = Math.abs(fechaCantidad.getTime() - fechaPrecioTotal.getTime());
-  var dosSemanasEnMilisegundos = 2 * 7 * 24 * 60 * 60 * 1000;
+    
 
     if (
-      this.form.value['descripcion'] === 'pendiente' || this.form.value['descripcion'] === 'libre' &&
-      diferencia <= dosSemanasEnMilisegundos
-    ) {
+      (this.form.value['descripcion'] === 'pendiente' || this.form.value['descripcion'] === 'libre') &&
+      (this.compras.fechad.getDate() - this.compras.fechap.getDate() <= 14 && this.compras.fechad.getDate() - this.compras.fechap.getDate() >= 0)
+      ) {
+      console.log("Entro esta vaina")
       if (this.edicion) {
         this.cS.update(this.compras).subscribe(() => {
           this.cS.list().subscribe((data) => {
@@ -96,8 +96,8 @@ export class ComprasCreaeditaComponent implements OnInit {
       this.cS.listId(this.id).subscribe((data) => {
         this.form = new FormGroup({
           id: new FormControl(data.id),
-          cantidad: new FormControl(data.cantidad),
-          precio_total: new FormControl(data.precio_total),
+          fechap: new FormControl(data.fechap),
+          fechad: new FormControl(data.fechad),
           descripcion: new FormControl(data.descripcion),
           fecha: new FormControl(data.fecha),
           Cliente_ID: new FormControl(data.Cliente_ID),
