@@ -19,7 +19,7 @@ import { LandingPageComponent } from './component/landing-page/landing-page.comp
 import { MenuComponent } from './component/menu/menu.component';
 
 const routes: Routes = [
-  { path: '', component: ClienteComponent },
+  { path: '', component: LandingPageComponent, },
   {
     path: 'clientes',
     component: ClienteComponent,
