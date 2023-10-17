@@ -1,12 +1,13 @@
-# La Biblioteca del Chavo - Grupo 3
+# Grupo 2 
 
 | Integrantes     |
 | --------------- |
-| Brian Uceda     |
+| Kiara Zúñiga |
+|Alessandro Morales |
 | Edeer Yauricasa |
-| Andy Garcia     |
-| Alexander Villa |
-| Leslie Uceda    |
+| Mariela Martinez|
+| Floridelsa Garcia |
+| Samuel Chamorro |
 
 # Instalación de los Packages necesarios
 
