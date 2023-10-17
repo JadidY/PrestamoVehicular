@@ -1134,15 +1134,6 @@ h4.sub-title {
   vertical-align: -webkit-baseline-middle;
 }
 
-.tank-feature-3 .top-bottom {
-  background: url(images/3.jpg) no-repeat center;
-  background-size: cover;
-  padding: 100px 0 120px;
-  background-attachment: fixed;
-  position: relative;
-  z-index: 0;
-}
-
 .tank-feature-3 .top-bottom::before {
   content: "";
   background: rgba(7, 10, 12, 0.72);
@@ -1558,15 +1549,6 @@ body::after {
   width: 100%;
   text-align: center;
   line-height: 0;
-}
-
-.services-12 .form-12-content {
-  background: url("images/2.jpg") no-repeat center;
-  background-size: cover;
-  padding: 5rem 0px;
-  background-attachment: fixed;
-  position: relative;
-  z-index: 1;
 }
 
 .services-12 .form-12-content:before {
@@ -3014,19 +2996,6 @@ body::after {
   }
 }
 
-.tank-about-breadcrum .breadcrum-bg {
-  background-size: cover;
-  background-image: linear-gradient(
-      to right,
-      rgba(42, 42, 42, 0.71),
-      rgba(38, 40, 40, 0.78)
-    ),
-    url(images/2.jpg);
-  background-repeat: no-repeat, no-repeat, no-repeat;
-  background-position: center;
-  padding-top: 86px;
-}
-
 .tank-about-breadcrum .bread-crub-top {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -3071,19 +3040,6 @@ body::after {
   }
 }
 
-.tank-contact-breadcrum .breadcrum-bg {
-  background-size: cover;
-  background-image: linear-gradient(
-      to right,
-      rgba(42, 42, 42, 0.71),
-      rgba(38, 40, 40, 0.78)
-    ),
-    url(images/g2.jpg);
-  background-repeat: no-repeat, no-repeat, no-repeat;
-  background-position: center;
-  padding-top: 86px;
-}
-
 .tank-contact-breadcrum .bread-crub-top {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -3126,19 +3082,6 @@ body::after {
   .tank-contact-breadcrum .breadcrum-bg {
     padding-top: 60px;
   }
-}
-
-.tank-service-breadcrum .breadcrum-bg {
-  background-size: cover;
-  background-image: linear-gradient(
-      to right,
-      rgba(42, 42, 42, 0.71),
-      rgba(38, 40, 40, 0.78)
-    ),
-    url(images/g4.jpg);
-  background-repeat: no-repeat, no-repeat, no-repeat;
-  background-position: center;
-  padding-top: 86px;
 }
 
 .tank-service-breadcrum .bread-crub-top {
@@ -3201,14 +3144,6 @@ body::after {
   box-shadow: 0 2px 20px 5px rgba(0, 0, 0, 0.3);
 }
 
-.products-4 .form-13-content {
-  background: url(images/ica-nazca-paracas2.jpg) no-repeat center;
-  background-size: cover;
-  padding: 100px 0 120px;
-  background-attachment: fixed;
-  position: relative;
-  z-index: 0;
-}
 
 .containMain2-1 {
   display: grid;
