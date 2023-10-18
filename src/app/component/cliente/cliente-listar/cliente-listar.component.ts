@@ -13,13 +13,10 @@ import { ClienteDialogoComponent } from './cliente-dialogo/cliente-dialogo.compo
   templateUrl: './cliente-listar.component.html',
   styleUrls: ['./cliente-listar.component.css'],
 })
-export class ClienteListarComponent implements OnInit, AfterViewInit {
+export class ClienteListarComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild('sidenav') sidenav!: MatSidenav;
 
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-  }
 
   reason = '';
   close(reason: string) {
@@ -27,50 +24,70 @@ export class ClienteListarComponent implements OnInit, AfterViewInit {
     this.sidenav.close();
   }
   shouldRun = true;
-  dataSource: MatTableDataSource<Cliente> = new MatTableDataSource();
-  lista: Cliente[] = [];
-  idMayor: number = 0;
-  displayedColumns: string[] = [
-    'Codigo',
-    'Nombre',
-    'Apellido',
-    'Facultad',
-    'Carrera',
-    'dni',
-    'Telefono',
-    'Direccion',
-    'ID_Login',
-    'accion01',
-    'acciones2',
-  ];
+  
 
-  constructor(private cS: ClienteService, private dialog: MatDialog) { }
+  constructor(private cS: ClienteService, private dialog: MatDialog) {
+
+    this.montoPrestamo = 0;
+    this.tasaInteres = 0;
+    this.plazoMeses = 0;
+    this.periodoGracia = '';
+
+   }
 
   ngOnInit(): void {
-    this.cS.list().subscribe((data) => {
-      this.dataSource = new MatTableDataSource(data);
-    });
-    this.cS.getList().subscribe((data) => {
-      this.dataSource = new MatTableDataSource(data);
-    });
-
-    this.cS.getConfirmDelete().subscribe((data) => {
-      data == true ? this.eliminar(this.idMayor) : false;
-    });
-
+    this.montoPrestamo = 0;
+    this.tasaInteres = 0;
+    this.plazoMeses = 0;
+    this.periodoGracia = '';
   }
-  confirm(id: number) {
-    this.idMayor = id;
-    this.dialog.open(ClienteDialogoComponent);
-  }
-  eliminar(id: number) {
-    this.cS.delete(id).subscribe(() => {
-      this.cS.list().subscribe((data) => {
-        this.cS.setList(data);
+
+  montoPrestamo: number;
+  tasaInteres: number;
+  plazoMeses: number;
+  periodoGracia: string;
+
+  cuotas: any[] = [];
+
+  calcular() {
+
+    let capital = this.montoPrestamo;
+    let tasaMensual = this.tasaInteres / 100 / 12;
+    let meses = this.plazoMeses;
+
+    let saldo = capital;
+    let pgTotal = this.periodoGracia === 'total';
+    let pgParcial = this.periodoGracia === 'parcial';
+
+    this.cuotas = [];
+
+    for(let i=1; i<=meses; i++) {
+
+      let interes = saldo * tasaMensual;
+      let cuota = capital * (tasaMensual * Math.pow(1 + tasaMensual, meses - i)) / ( Math.pow(1 + tasaMensual, meses - i) - 1);
+
+      let amortizacion = cuota - interes;
+      saldo = saldo - amortizacion;
+
+      if(pgTotal && i === 1) {
+        amortizacion = 0;
+      }
+
+      if(pgParcial && i <= 2) {
+        amortizacion = 0;
+      }
+
+      this.cuotas.push({
+        numero: i,
+        interes: interes,
+        amortizacion: amortizacion,
+        cuota: cuota,
+        saldo: saldo
       });
-    });
+
+    }
+
   }
-  filtrar(z: any) {
-    this.dataSource.filter = z.target.value.trim();
-  }
+  
+  
 }

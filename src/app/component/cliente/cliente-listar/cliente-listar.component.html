@@ -30,25 +30,50 @@
         <h1>Calculadora</h1>
       </div>
 
-      <form action="calcular.php" method="post">
-        <input type="radio" name="moneda" value="soles"> Soles
-        <input type="radio" name="moneda" value="dolares"> Dólares
-        <br>
-        <input type="radio" name="tasa_interes" value="nominal"> Tasa nominal
-        <input type="radio" name="tasa_interes" value="efectiva"> Tasa efectiva
-        <br>
-        <input type="number" name="precioventa" placeholder="Precio de venta del activo">
-        <br>
-        <input type="number" name="cuoainicial" placeholder="% Cuota Inicial">
-        <br>
-        <input type="number" name="annio" placeholder="N° años">
-        <br>
-        <input type="number" name="frecuencia" placeholder="Frecuencia de pago">
-        <br>
-        <input type="number" name="plazo_gracia" placeholder="Plazo de gracia (meses)">
-        <br>
-        <input type="submit" value="Calcular">
-      </form>
+   <!-- app.component.html -->
+
+<h1>Plan de Pagos</h1>
+
+<form>
+
+  <label>Monto del Préstamo:</label>
+  <input type="number" [(ngModel)]="montoPrestamo">
+
+  <label>Tasa de Interés (%):</label>
+  <input type="number" [(ngModel)]="tasaInteres">
+  
+  <label>Plazo (meses):</label>
+  <input type="number" [(ngModel)]="plazoMeses">
+
+  <label>Periodo de Gracia:</label>
+  <select [(ngModel)]="periodoGracia">
+    <option value="total">Total</option>
+    <option value="parcial">Parcial</option>
+    <option value="ninguno">Ninguno</option>
+  </select>
+
+  <button (click)="calcular()">Calcular</button>
+
+</form>
+
+<table>
+  <tr>
+    <th>Nro. Cuota</th>
+    <th>Interés</th>
+    <th>Amortización</th>
+    <th>Cuota</th>
+    <th>Saldo</th>
+  </tr>
+
+  <tr *ngFor="let cuota of cuotas">
+    <td>{{cuota.numero}}</td>
+    <td>{{cuota.interes | currency}}</td>
+    <td>{{cuota.amortizacion | currency}}</td>
+    <td>{{cuota.cuota | currency}}</td>
+    <td>{{cuota.saldo | currency}}</td>
+  </tr>
+
+</table>
 
 
       <div style="text-align: right">
